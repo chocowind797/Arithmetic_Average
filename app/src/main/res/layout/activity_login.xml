@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:layout_above="@id/btn_login_add"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        app:srcCompat="@drawable/aa"
+        android:padding="20dp"/>
+
+    <Button
+        android:onClick="option"
+        android:tag="add"
+        android:id="@+id/btn_login_add"
+        android:text="@string/btn_login_add_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:padding="15dp"
+        android:textSize="25sp"/>
+
+    <Button
+        android:onClick="option"
+        android:tag="query"
+        android:id="@+id/btn_login_query"
+        android:text="@string/btn_login_query_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login_add"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:padding="15dp"
+        android:textSize="25sp"/>
+
+    <Button
+        android:onClick="option"
+        android:tag="calc"
+        android:id="@+id/btn_login_calc"
+        android:text="@string/btn_login_calc_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login_query"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:padding="15dp"
+        android:textSize="25sp"/>
+
+</RelativeLayout>

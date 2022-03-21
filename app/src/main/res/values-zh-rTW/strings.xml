@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AA 計算機</string>
+    <string name="payer_txt">付款人</string>
+    <string name="item_txt">物品</string>
+    <string name="price_txt">價格</string>
+    <string name="remark_txt">備註</string>
+    <string name="date_txt">日期</string>
+    <string name="activity_login_title_txt">功能選單</string>
+    <string name="btn_login_add_txt">新增資料</string>
+    <string name="btn_login_query_txt">查詢資料</string>
+    <string name="btn_login_calc_txt">計算結果</string>
+    <string name="null_alert_title">錯誤</string>
+    <string name="null_alert_message">空指向</string>
+    <string name="null_alert_ok">OK</string>
+    <string name="login_query_alert_title">設定人數</string>
+    <string name="activity_add_title_txt">新增資料</string>
+    <string name="add_payer_hint">名字</string>
+    <string name="add_item_hint">物品名</string>
+    <string name="add_price_hint">100</string>
+    <string name="btn_add_add_txt">新增</string>
+    <string name="add_successful_txt">新增成功</string>
+    <string name="add_fail_empty_txt">欄位不得為空</string>
+    <string name="add_fail_not_digital_txt">價格須為數字</string>
+    <string name="add_alert_title">確認資料</string>
+    <string name="add_alert_confirm_btn">確認</string>
+    <string name="add_alert_cancel_btn">取消</string>
+    <string name="activity_query_title_txt">查詢資料</string>
+    <string name="query_remark_detail_txt">詳細</string>
+    <string name="query_detail_finish_btn">結束</string>
+    <string name="query_detail_modify_btn">變更</string>
+    <string name="query_detail_modify_clear_btn">清除</string>
+    <string name="query_paydata_delete_btn">刪除</string>
+    <string name="query_paydata_delete_title">刪除資料</string>
+    <string name="query_paydata_delete_message">確認刪除資料</string>
+    <string name="activity_calc_title_txt">計算結果</string>
+    <string name="calc_receiver_txt">收款人</string>
+    <string name="calc_no_pay_txt">其餘人</string>
+    <string name="login_query_null_amount">人數不得為空</string>
+    <string name="login_query_wrong_amount">人數不得少於資料人數</string>
+    <string name="login_query_empty_amount">尚無資料，請新增資料</string>
+    <string name="query_menu_clear">刪除所有資料</string>
+    <string name="query_menu_clear_alert_message">確認刪除所有資料</string>
+    <string name="query_menu_clear_successful">刪除成功</string>
+</resources>

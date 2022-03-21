@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Arithmetic Average</string>
+
+    <!--    all    -->
+    <string name="payer_txt">Payer</string>
+    <string name="item_txt">Item</string>
+    <string name="price_txt">Price</string>
+    <string name="remark_txt">Remark</string>
+    <string name="date_txt">Date</string>
+
+    <!--    activity_login    -->
+    <string name="activity_login_title_txt">Option</string>
+    <string name="btn_login_add_txt">Add Data</string>
+    <string name="btn_login_query_txt">Query Data</string>
+    <string name="btn_login_calc_txt">Calc Data</string>
+    <string name="null_alert_title">Error</string>
+    <string name="null_alert_message">Null Pointer</string>
+    <string name="null_alert_ok">OK</string>
+    <string name="login_query_alert_title">Set Amount of people</string>
+    <string name="login_query_null_amount">Amount of people cannot be empty</string>
+    <string name="login_query_wrong_amount">Amount of people cannot be less than amount of database</string>
+    <string name="login_query_empty_amount">No data exists! Please add data.</string>
+
+    <!--    activity_add    -->
+    <string name="activity_add_title_txt">Add Data</string>
+    <string name="add_payer_hint">name</string>
+    <string name="add_item_hint">item name</string>
+    <string name="add_price_hint">TWD</string>
+    <string name="btn_add_add_txt">Add</string>
+    <string name="add_successful_txt">Add Successfully</string>
+    <string name="add_fail_empty_txt">Column cannot be empty</string>
+    <string name="add_fail_not_digital_txt">Price is not a number</string>
+    <string name="add_alert_title">Confirm Data</string>
+    <string name="add_alert_confirm_btn">Confirm</string>
+    <string name="add_alert_cancel_btn">Cancel</string>
+
+    <!--    activity_query    -->
+    <string name="activity_query_title_txt">Query Data</string>
+    <string name="query_remark_detail_txt">Detail</string>
+    <string name="query_detail_finish_btn">Finish</string>
+    <string name="query_detail_modify_btn">Modify</string>
+    <string name="query_detail_modify_clear_btn">Clear</string>
+    <string name="query_paydata_delete_btn">Delete</string>
+    <string name="query_paydata_delete_title">Delete Data</string>
+    <string name="query_paydata_delete_message">Confirm to delete data</string>
+    <string name="query_menu_clear">Delete All</string>
+    <string name="query_menu_clear_alert_message">Delete All Data</string>
+    <string name="query_menu_clear_successful">Delete Successfully</string>
+
+    <!--    activity_calc    -->
+    <string name="activity_calc_title_txt">Calculate Result</string>
+    <string name="calc_receiver_txt">Receiver</string>
+    <string name="calc_no_pay_txt">Other</string>
+</resources>
