@@ -143,7 +143,6 @@ class QueryActivity : AppCompatActivity() {
                         runOnUiThread {
                             payDataAdapter.notifyDataSetChanged()
                             Toast.makeText(context, R.string.query_menu_clear_successful, Toast.LENGTH_SHORT).show()
-
                         }
                     }
                 }
@@ -168,8 +167,8 @@ class QueryActivity : AppCompatActivity() {
                         payDataAdapter.payDatas = payDatas as ArrayList<PayData>
                         runOnUiThread {
                             payDataAdapter.notifyDataSetChanged()
+                            Toast.makeText(context, R.string.query_detail_modify_successful, Toast.LENGTH_SHORT).show()
                         }
-                        Toast.makeText(context, R.string.query_detail_modify_successful, Toast.LENGTH_SHORT).show()
                     }
                 }
                 .create()

@@ -49,16 +49,19 @@ class CalcActivity : AppCompatActivity() {
             calc = PayDataCalc(db, amount)
 //            Log.d("CalcActivity", payers.toString())
             val other = resources.getString(R.string.calc_no_pay_txt)
-            var results = calc.mapReceiver(other, payers as ArrayList<Payer>)
+            var results_temp: List<PayResult> = calc.mapReceiver(other, payers as ArrayList<Payer>)
 //            Log.d("CalcActivity", results.toString())
             val count = amount - payers.size - 1
-            results = results.toSet().toList() as ArrayList<PayResult>
+
+            results_temp = results_temp.toSet().toList()
+
+            val results = ArrayList<PayResult>(results_temp)
 
             results.sortWith(Comparator { o1, o2 ->
                 o1.payer.name.hashCode() - o2.payer.name.hashCode()
             })
-            calcAdapter.payers = results
 
+            calcAdapter.setPayers(results)
             runOnUiThread {
                 calcAdapter.notifyDataSetChanged()
             }

@@ -13,8 +13,12 @@ import kotlinx.android.synthetic.main.calcycle_list.view.*
 
 class CalcAdapter(val listener: CalcRowOnClickListener, val nested_listener: ReceiverAdapter.ReceiverRowOnClickListener) :
     RecyclerView.Adapter<CalcAdapter.CalcViewHolder>() {
-    var payers = ArrayList<PayResult>()
+    private var payers = ArrayList<PayResult>()
     val viewPool: RecyclerView.RecycledViewPool = RecyclerView.RecycledViewPool()
+
+    fun setPayers(payers: ArrayList<PayResult>) {
+        this.payers = payers
+    }
 
     interface CalcRowOnClickListener {
         fun onItemClickListener(payResult: PayResult)
