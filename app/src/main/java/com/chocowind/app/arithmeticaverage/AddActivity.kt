@@ -55,7 +55,8 @@ class AddActivity : AppCompatActivity() {
                     .setPositiveButton(R.string.add_alert_confirm_btn) { _, _ ->
                         GlobalScope.launch {
                             val payer = Payer(name)
-                            db.payDao().insertPayers(payer)
+                            if (db.payDao().getPayer(name) != payer)
+                                db.payDao().insertPayers(payer)
 
                             val payData = PayData(db.payDao().getPayer(name).uuid, item, price, date, remark)
                             db.payDao().insertPayDatas(payData)

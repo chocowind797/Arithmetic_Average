@@ -2,16 +2,20 @@ package com.chocowind.app.arithmeticaverage.model
 
 data class PayResult(val payer: Receiver, val receivers: ArrayList<ReceiverTemp>) {
     override fun equals(other: Any?): Boolean {
-        if(other !is PayResult)
-            return false
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
 
-        val payResult = other as PayResult
-        if (payResult.payer.name == this.payer.name)
-            return true
-        return false
+        other as PayResult
+
+        if (payer != other.payer) return false
+        if (receivers != other.receivers) return false
+
+        return true
     }
 
     override fun hashCode(): Int {
-        return payer.hashCode()
+        var result = payer.hashCode()
+        result = 31 * result + receivers.hashCode()
+        return result
     }
 }

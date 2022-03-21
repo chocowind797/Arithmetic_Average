@@ -124,35 +124,31 @@ class QueryActivity : AppCompatActivity() {
             val confirmAlert: View = View.inflate(context, R.layout.confirm_add, null)
 
             confirmAlert.confirm_date.text = payData.date
-            confirmAlert.confirm_payer.text = db.payDao().getPayer(payData.payer).name.toString()
+            confirmAlert.confirm_payer.text = db.payDao().getPayer(payData.payer).name
             confirmAlert.confirm_item.text = payData.item
             confirmAlert.confirm_remark.text = payData.remark
             confirmAlert.confirm_price.text = payData.price.toString()
 
             AlertDialog.Builder(context)
                 .setView(confirmAlert)
-                .create()
-                .show()
-        }
-
-        override fun onItemLongClickListener(payData: PayData) {
-            val deleteData: View = View.inflate(context, R.layout.confirm_add, null)
-
-            deleteData.tv_query_delete.visibility = View.VISIBLE
-
-            AlertDialog.Builder(context)
-                .setTitle(R.string.query_paydata_delete_title)
-                .setView(deleteData)
-                .setPositiveButton(R.string.query_paydata_delete_btn) { _, _ ->
+                .setNegativeButton(R.string.query_paydata_delete_btn){ _, _ ->
                     GlobalScope.launch {
                         db.payDao().deletePayData(payData)
+                        val uuid = payData.payer
+                        val exists = db.payDao().getPayDataByPayer(uuid)
+                        if (exists.isEmpty())
+                            db.payDao().deletePayer(uuid)
                         val payDatas = db.payDao().getAllPayDatas()
                         payDataAdapter.payDatas = payDatas as ArrayList<PayData>
                         runOnUiThread {
                             payDataAdapter.notifyDataSetChanged()
+                            Toast.makeText(context, R.string.query_menu_clear_successful, Toast.LENGTH_SHORT).show()
+
                         }
                     }
                 }
+                .create()
+                .show()
         }
 
         override fun onRemarkDetailClickListener(payData: PayData) {
@@ -173,6 +169,7 @@ class QueryActivity : AppCompatActivity() {
                         runOnUiThread {
                             payDataAdapter.notifyDataSetChanged()
                         }
+                        Toast.makeText(context, R.string.query_detail_modify_successful, Toast.LENGTH_SHORT).show()
                     }
                 }
                 .create()

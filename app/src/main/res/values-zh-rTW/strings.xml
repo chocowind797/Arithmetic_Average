@@ -28,7 +28,7 @@
     <string name="activity_query_title_txt">查詢資料</string>
     <string name="query_remark_detail_txt">詳細</string>
     <string name="query_detail_finish_btn">結束</string>
-    <string name="query_detail_modify_btn">變更</string>
+    <string name="query_detail_modify_btn">修改</string>
     <string name="query_detail_modify_clear_btn">清除</string>
     <string name="query_paydata_delete_btn">刪除</string>
     <string name="query_paydata_delete_title">刪除資料</string>
@@ -42,4 +42,5 @@
     <string name="query_menu_clear">刪除所有資料</string>
     <string name="query_menu_clear_alert_message">確認刪除所有資料</string>
     <string name="query_menu_clear_successful">刪除成功</string>
+    <string name="query_detail_modify_successful">修改成功</string>
 </resources>

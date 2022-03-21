@@ -17,7 +17,6 @@ class PayDataAdapter(val listener: QueryRowOnClickListener) :
 
     interface QueryRowOnClickListener {
         fun onItemClickListener(payData: PayData)
-        fun onItemLongClickListener(payData: PayData)
         fun onRemarkDetailClickListener(payData: PayData)
         fun setPayer(textView: TextView, uuid: Int)
     }
@@ -53,11 +52,6 @@ class PayDataAdapter(val listener: QueryRowOnClickListener) :
         // holder.itemView -> 整列資料
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(payData)
-        }
-
-        holder.itemView.setOnLongClickListener {
-            listener.onItemLongClickListener(payData)
-            false
         }
     }
 

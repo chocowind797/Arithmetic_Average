@@ -16,6 +16,9 @@ interface PayDao {
     @Query("SELECT * FROM payData WHERE id = :id")
     fun getPayData(id: Int): PayData
 
+    @Query("SELECT * FROM payData WHERE payer = :payer")
+    fun getPayDataByPayer(payer: Int): List<PayData>
+
     // 查詢所有 PayData
     @Query("SELECT * FROM payer")
     fun getAllPayers(): List<Payer>
@@ -45,8 +48,8 @@ interface PayDao {
     fun deletePayData(payData: PayData)
 
     // 刪除
-    @Query("DELETE FROM payer WHERE name = :name")
-    fun deletePayer(name: String)
+    @Query("DELETE FROM payer WHERE uuid = :uuid")
+    fun deletePayer(uuid: Int)
 
     @Query("DELETE FROM payer")
     fun deleteAllPayer()

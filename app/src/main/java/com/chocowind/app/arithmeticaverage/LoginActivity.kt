@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.text.isDigitsOnly
 import com.chocowind.app.arithmeticaverage.db.PayDatabase
+import kotlinx.android.synthetic.main.calc_alert.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -30,8 +31,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun option(view: View) {
         if (view.tag == "calc") {
-            val editText = EditText(context)
-            editText.gravity = EditText.TEXT_ALIGNMENT_CENTER
+            val alert = View.inflate(context, R.layout.calc_alert, null)
 
             GlobalScope.launch {
                 payerAmount = db.payDao().getAllPayers().size
@@ -39,8 +39,9 @@ class LoginActivity : AppCompatActivity() {
 
             AlertDialog.Builder(context)
                 .setTitle(R.string.login_query_alert_title)
-                .setView(editText)
+                .setView(alert)
                 .setPositiveButton(R.string.add_alert_confirm_btn) { _, _ ->
+                    val editText = alert.et_login_calc_alert
                     if (editText.text.isNotEmpty() && editText.text.toString().isDigitsOnly()) {
                         val amount = editText.text.toString().toInt()
                         if (payerAmount > amount) {

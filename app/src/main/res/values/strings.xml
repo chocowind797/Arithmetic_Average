@@ -39,6 +39,7 @@
     <string name="query_remark_detail_txt">Detail</string>
     <string name="query_detail_finish_btn">Finish</string>
     <string name="query_detail_modify_btn">Modify</string>
+    <string name="query_detail_modify_successful">Modify Successfully</string>
     <string name="query_detail_modify_clear_btn">Clear</string>
     <string name="query_paydata_delete_btn">Delete</string>
     <string name="query_paydata_delete_title">Delete Data</string>

@@ -42,7 +42,6 @@ class PayDataCalc(val db: PayDatabase, val amount: Int) {
                     val removeItem =
                         price.remove(abs(needToPay)) ?: receiver
                     correspond.add(arrayListOf(receiver, removeItem))
-//                    Log.d("CalcActivity", removeItem.toString())
 
                     receiversNegative.remove(removeItem)
                     receiversPositive.remove(removeItem)
@@ -52,7 +51,7 @@ class PayDataCalc(val db: PayDatabase, val amount: Int) {
 //            Log.d("CalcActivity", receiver.toString())
         }
 
-        for (i in 0 until (amount - receiversNegative.size - receiversPositive.size - zero))
+        for (i in 0 until (amount - payers.size))
             receiversPositive.add(Receiver(other, 0, totalPerPerson))
 
         Collections.sort(receiversNegative, Comparator.comparingInt(Receiver::needToPay))
@@ -78,32 +77,41 @@ class PayDataCalc(val db: PayDatabase, val amount: Int) {
 //        Log.d("CalcActivity", payResults.toString())
 //        Log.d("CalcActivity", receiversNegative.toString())
 //        Log.d("CalcActivity", receiversPositive.toString())
+        val jump = ArrayList<Receiver>()
 
         receiversPositive.forEach { pos ->
             val receivers = ArrayList<ReceiverTemp>()
 
             receiversNegative.forEach inner@ { nev ->
-                if(pos.needToPay != 0) {
-                    if (pos.needToPay + nev.needToPay < 0) {
-                        receivers.add(ReceiverTemp(nev, pos.needToPay))
-                        nev.needToPay += pos.needToPay
-                        return@inner
-                    } else if (pos.needToPay + nev.needToPay == 0) {
-                        receivers.add(ReceiverTemp(nev, pos.needToPay))
-                        receiversNegative.remove(nev)
-                        return@inner
-                    } else {
-                        receivers.add(ReceiverTemp(nev, nev.needToPay))
-                        pos.needToPay += nev.needToPay
-                        receiversNegative.remove(nev)
+                if(pos.needToPay > 0) {
+                    if (!jump.contains(nev)) {
+                        if (pos.needToPay + nev.needToPay < 0) {
+                            receivers.add(ReceiverTemp(nev, pos.needToPay))
+                            nev.needToPay += pos.needToPay
+                            pos.needToPay = 0
+                            return@inner
+                        } else if (pos.needToPay + nev.needToPay == 0) {
+                            receivers.add(ReceiverTemp(nev, pos.needToPay))
+                            nev.needToPay = 0
+                            pos.needToPay = 0
+                            jump.add(nev)
+                            return@inner
+                        } else {
+                            receivers.add(ReceiverTemp(nev, abs(nev.needToPay)))
+                            pos.needToPay += nev.needToPay
+                            nev.needToPay = 0
+                            jump.add(nev)
+                        }
                     }
                 }
             }
+
             receivers.sortedWith(Comparator { o1, o2 ->
                 o1.receiver.name.hashCode() - o2.receiver.name.hashCode()
             })
             payResults.add(PayResult(pos, receivers))
         }
+        Log.d("CalcActivity", payResults.toString())
         return payResults
     }
 }
